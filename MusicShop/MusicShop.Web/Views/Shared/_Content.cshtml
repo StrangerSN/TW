@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = null;
+}
+@using System.Web.Optimization
+
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <div class="page-title-right">
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Minton</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div>
+                    <h4 class="page-title">Welcome !</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+            <div class="row">
+                @foreach (var prod in Model.Products)
+                {
+                    <div class="col-md-6 col-xl-3">
+
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="~/Content/img/small/img-2.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">@prod</h5>
+                                <p class="card-text">
+                                    Some quick example text to build on the card title and make
+                                    up the bulk of the card's content.
+                                </p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Cras justo odio</li>
+                                <li class="list-group-item">Dapibus ac facilisis in</li>
+                            </ul>
+                            <div class="card-body">
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
