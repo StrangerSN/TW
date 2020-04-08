@@ -9,7 +9,5 @@ namespace MusicShop.Web.Models
     {
         public string Username{ get; set; }
         public List<string> Products{ get; set; }
-
-
     }
 }
