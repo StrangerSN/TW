@@ -20,7 +20,12 @@ namespace MusicShop.Web
             bundles.Add(new ScriptBundle("~/bundles/jquery-sparkline/js").Include("~/Scripts/jquery-sparkline/jquery.sparkline.min.js"));
             bundles.Add(new ScriptBundle("~/bundles/dashboard-1/js").Include("~/Scripts/pages/dashboard-1.init.js"));
             bundles.Add(new ScriptBundle("~/bundles/app/js").Include("~/Scripts/app.min.js"));
-            bundles.Add(new ScriptBundle("~/bundles/unobtrusive/js").Include("~/Scripts/jquery.validate.unobtrusive.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval/js").Include(
+               "~/Scripts/jquery-{version}.min.js",
+               "~/Scripts/jquery.validate.min.js",
+               "~/Scripts/jquery.validate.unobtrusive.min.js"));
+
         }
     }
 }

@@ -17,7 +17,24 @@ namespace MusicShop.Web
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+
             );
+            routes.MapRoute(
+                name: "Login",
+                url: "{controller}/{action}",
+                defaults: new { controller = "Login", action = "Index" }
+            );
+            routes.MapRoute(
+                name: "Register",
+                url: "{controller}/{action}",
+                defaults: new { controller = "Home", action = "Register" }
+            );
+            routes.MapRoute(
+            name: "Student",
+            url: "student/{id}/{name}/{standardId}",
+            defaults: new { controller = "Student", action = "Index", id = UrlParameter.Optional, name = UrlParameter.Optional, standardId = UrlParameter.Optional },
+            constraints: new { id = @"\d+" }
+    );
         }
     }
 }

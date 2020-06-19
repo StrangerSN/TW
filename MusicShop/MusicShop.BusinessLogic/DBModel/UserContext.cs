@@ -10,8 +10,7 @@ namespace MusicShop.BusinessLogic.DBModel
 {
     class UserContext : DbContext
     {
-        public UserContext() :
-            base ("name = MusicShop")
+        public UserContext() : base ("name=MusicShopDB")
         {
 
         }

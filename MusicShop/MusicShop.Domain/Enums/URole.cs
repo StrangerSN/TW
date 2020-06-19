@@ -8,8 +8,8 @@ namespace MusicShop.Domain.Enums
 {
     public enum URole
     {
+        Guest,
         User,
-        Moderator,
         Admin
 
     }

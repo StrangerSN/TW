@@ -24,7 +24,7 @@ namespace MusicShop.Web.Controllers
         //Get: Login
         public ActionResult Index()
         {
-            return View("Signin");
+            return View();
         }
         [HttpPost] //transmiterea datelor client sau a formularului catre server
         [ValidateAntiForgeryToken]//pentru a preveni falsificarea cererilor între site-uri
@@ -34,26 +34,27 @@ namespace MusicShop.Web.Controllers
             {
                 ULoginData data = new ULoginData
                 {
-                    Credential = login.Credential,
+                    Email = login.Email,
                     Password = login.Password,
                     LoginIp = Request.UserHostAddress,
-                    LoginDateTime = DateTime.Now
                 };
 
                 var userLogin = _session.UserLogin(data);
                 if (userLogin.Status)
                 {
                     //add cookie
+                    HttpCookie cookie = _session.GenCookie(login.Email);
+                    ControllerContext.HttpContext.Response.Cookies.Add(cookie);
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
                     ModelState.AddModelError("", userLogin.StatusMsg);
-                    return View("Signin");
+                    return View();
                 }
             }
 
-            return View("Signin");
+            return View();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MusicShop.Web.Models;
+﻿using MusicShop.Web.Extensions;
+using MusicShop.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +8,24 @@ using System.Web.Mvc;
 
 namespace MusicShop.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         // GET: Home
         public ActionResult Index()
         {
-            UserData u = new UserData();
-            u.Username = "Vanea";
-            u.Products = new List<string> { "Product #1", "Product #2", "Product #3", "Product #4" };
+            SessionStatus();
+            if ((string)System.Web.HttpContext.Current.Session["LoginStatus"] != "login")
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+            var user = System.Web.HttpContext.Current.GetMySessionObject();
+            UserData u = new UserData
+            {
+                Username = user.Username,
+                Products = new List<string> { "Product #1", "Product #2", "Product #3", "Product #4" }
+            };
+
             return View(u);
         }
 
@@ -31,6 +42,11 @@ namespace MusicShop.Web.Controllers
         public ActionResult Product(string btn)
         {
             return RedirectToAction("Product", "Home", new { @p = btn });
+        }
+
+        public ActionResult Signin()
+        {
+            return View("Signin");
         }
     }
 }

@@ -69,7 +69,7 @@
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                
                     <!-- item-->
-                    <a href="/Signin" class="dropdown-item notify-item">
+                    <a href="@Url.Action("Index", "Login")" class="dropdown-item notify-item">
                         <i class="remixicon-account-circle-line"></i>
                         Signin
                     </a>
@@ -95,7 +95,7 @@
                     <div class="dropdown-divider"></div>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                    <a href="@Url.Action("Index", "Logout")" class="dropdown-item notify-item">
                         <i class="remixicon-logout-box-line"></i>
                         <span>Logout</span>
                     </a>
@@ -112,7 +112,7 @@
         </ul>
         <!-- LOGO -->
         <div class="logo-box">
-            <a href="@Url.Action("Index", "Home")" class="logo text-center">
+            <a href="" class="logo text-center">
                 <span class="logo-lg">
                     <img src="~/Content/img/logo-light.png" alt="" height="20">
                 </span>

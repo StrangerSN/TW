@@ -1,11 +1,7 @@
 ﻿using MusicShop.BusinessLogic.Core;
 using MusicShop.BusinessLogic.Interfaces;
-using System.Web;   
+using System.Web;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MusicShop.Domain.Entities.User;
 
 namespace MusicShop.BusinessLogic
@@ -14,7 +10,24 @@ namespace MusicShop.BusinessLogic
     {
         public ULoginResp UserLogin(ULoginData data)
         {
-            return new ULoginResp();    //UserLoginAction(data);
+            return ULoginAction(data);
         }
+        public URegisterResp UserRegister(URegisterData data)
+        {
+            return URegisterAction(data);
+        }
+
+        [Obsolete]
+        public UserMinimal GetUserByCookie(string apiCookieValue)
+        {
+            return UserCookie(apiCookieValue);
+        }
+
+        public HttpCookie GenCookie(string loginCredential)
+        {
+            return Cookie(loginCredential);
+        }
+
+       
     }
 }
